@@ -1,0 +1,67 @@
+[
+  {
+    "moves": 18,
+    "optimal_moves": null,
+    "excess_moves": null,
+    "avg_latency": 483.8235294117647,
+    "path_consistency": 0.5555555555555556,
+    "repeat_error_rate": 0,
+    "success": false,
+    "level": 0,
+    "run": 0,
+    "first_input_time": 823,
+    "fail_count": 1
+  },
+  {
+    "moves": 6,
+    "optimal_moves": 6,
+    "excess_moves": 18,
+    "avg_latency": 237.2,
+    "path_consistency": 1.0,
+    "repeat_error_rate": 0,
+    "success": true,
+    "level": 0,
+    "run": 1,
+    "first_input_time": 9694,
+    "fail_count": 0
+  },
+  {
+    "moves": 7,
+    "optimal_moves": 7,
+    "excess_moves": 0,
+    "avg_latency": 340.1666666666667,
+    "path_consistency": 1.0,
+    "repeat_error_rate": 0,
+    "success": true,
+    "level": 1,
+    "run": 2,
+    "first_input_time": 13570,
+    "fail_count": 0
+  },
+  {
+    "moves": 7,
+    "optimal_moves": null,
+    "excess_moves": null,
+    "avg_latency": 356.3333333333333,
+    "path_consistency": 1.0,
+    "repeat_error_rate": 0,
+    "success": false,
+    "level": 2,
+    "run": 3,
+    "first_input_time": 16127,
+    "fail_count": 1
+  },
+  {
+    "moves": 10,
+    "optimal_moves": 10,
+    "excess_moves": 7,
+    "avg_latency": 430.44444444444446,
+    "path_consistency": 0.7,
+    "repeat_error_rate": 0,
+    "success": true,
+    "level": 2,
+    "run": 4,
+    "first_input_time": 19072,
+    "fail_count": 0
+  }
+]

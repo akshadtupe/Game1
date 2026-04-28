@@ -1,0 +1,93 @@
+export function extractFeatures(logs, levelIndex) {
+  const runs = {};
+
+  logs.forEach((log) => {
+    if (!runs[log.run]) runs[log.run] = [];
+    runs[log.run].push(log);
+  });
+
+  const results = [];
+
+  Object.keys(runs).forEach((runId) => {
+    const events = runs[runId];
+
+    let moveCount = 0;
+    let latencies = [];
+    let failCount = 0;
+    let won = false;
+    let firstInput = null;
+    let optimalMoves = null;
+    let excessMoves = null;
+    let level = null;
+
+    const positions = [];
+    const failPositions = {};
+
+    events.forEach((e) => {
+      if (e.level !== undefined && level === null) {
+        level = e.level;
+      }
+
+      if (e.event === "move") {
+        moveCount++;
+        positions.push(e.position.join(","));
+      }
+
+      if (e.event === "latency") {
+        latencies.push(e.value);
+      }
+
+      if (e.event === "first_input") {
+        firstInput = e.value;
+      }
+
+      if (e.event === "fail") {
+        failCount++;
+        const key = e.position.join(",");
+        failPositions[key] = (failPositions[key] || 0) + 1;
+      }
+
+      if (e.event === "win") {
+        won = true;
+        if (e.optimalMoves !== undefined) {
+          optimalMoves = e.optimalMoves;
+        }
+      }
+    });
+
+    if (won && optimalMoves !== null) {
+      excessMoves = moveCount - optimalMoves;
+    }
+
+    if (moveCount === 0 && !won) return;
+
+    const avgLatency =
+      latencies.length > 0
+        ? latencies.reduce((a, b) => a + b, 0) / latencies.length
+        : 0;
+
+    const uniquePositions = new Set(positions).size;
+
+    const pathConsistency =
+      moveCount > 0 ? uniquePositions / moveCount : 0;
+
+    const repeatErrorRate =
+      Object.values(failPositions).filter((v) => v > 1).length;
+
+    results.push({
+      level: level ?? levelIndex,
+      run: Number(runId),
+      moves: moveCount,
+      avg_latency: avgLatency,
+      first_input_time: firstInput,
+      fail_count: failCount,
+      path_consistency: pathConsistency,
+      repeat_error_rate: repeatErrorRate,
+      success: won,
+      optimal_moves: optimalMoves,
+      excess_moves: excessMoves,
+    });
+  });
+
+  return results;
+}
