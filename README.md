@@ -18,7 +18,7 @@ The Outputs:
 - Label 1:
 “Low Cognitive Performance / Struggling Players”
 
-# 🔴Cluster 0
+#🔴Cluster 0
 **Fast + efficient + consistent**
 - Label 2:
 “High Cognitive Efficiency (Fast & Accurate)”
