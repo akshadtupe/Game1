@@ -6,6 +6,11 @@ class Logger {
     this.runId = 0;
   }
 
+  resetRun() {
+    this.runId = 0;
+    this.lastMoveTime = null;
+  }
+
   logMove(dir, block, levelIndex) {
     const now = Date.now();
 

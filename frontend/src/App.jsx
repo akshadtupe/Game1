@@ -104,6 +104,7 @@ export default function App() {
 
   //Reset block when level changes
   useEffect(() => {
+    logger.resetRun();
     setBlock({
       x: currentLevel.start.x,
       y: currentLevel.start.y,
