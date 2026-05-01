@@ -6,6 +6,12 @@ class Logger {
     this.runId = 0;
   }
 
+  resetLevelTelemetry() {
+    this.runId = 0;
+    this.lastMoveTime = null;
+    this.startTime = Date.now();
+  }
+
   logMove(dir, block, levelIndex) {
     const now = Date.now();
 

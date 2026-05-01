@@ -112,6 +112,7 @@ export default function App() {
 
     setMoves(0); 
     setResets(0);
+    logger.resetLevelTelemetry();
   }, [levelIndex]);
 
   return (
