@@ -6,7 +6,7 @@ class Logger {
     this.runId = 0;
   }
 
-  resetRun() {
+  resetLevelTelemetry() {
     this.runId = 0;
     this.lastMoveTime = null;
     this.startTime = Date.now();

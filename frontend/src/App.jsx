@@ -104,7 +104,7 @@ export default function App() {
 
   //Reset block when level changes
   useEffect(() => {
-    logger.resetRun();
+    logger.resetLevelTelemetry();
     setBlock({
       x: currentLevel.start.x,
       y: currentLevel.start.y,
