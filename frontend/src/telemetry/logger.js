@@ -9,6 +9,7 @@ class Logger {
   resetRun() {
     this.runId = 0;
     this.lastMoveTime = null;
+    this.startTime = Date.now();
   }
 
   logMove(dir, block, levelIndex) {
