@@ -1,0 +1,72 @@
+[
+  {
+    "moves": 6,
+    "optimal_moves": 6,
+    "excess_moves": 0,
+    "avg_latency": 406.8,
+    "path_consistency": 1.0,
+    "repeat_error_rate": 0,
+    "success": true,
+    "level": 0,
+    "run": 0,
+    "first_input_time": 677,
+    "fail_count": 0,
+    "player_id": "player_1777711633763"
+  },
+  {
+    "moves": 7,
+    "optimal_moves": 7,
+    "excess_moves": 0,
+    "avg_latency": 340.5,
+    "path_consistency": 1.0,
+    "repeat_error_rate": 0,
+    "success": true,
+    "level": 1,
+    "run": 0,
+    "first_input_time": 540,
+    "fail_count": 0,
+    "player_id": "player_1777711633763"
+  },
+  {
+    "moves": 7,
+    "optimal_moves": null,
+    "excess_moves": null,
+    "avg_latency": 604.6666666666666,
+    "path_consistency": 1.0,
+    "repeat_error_rate": 0,
+    "success": false,
+    "level": 2,
+    "run": 0,
+    "first_input_time": 825,
+    "fail_count": 1,
+    "player_id": "player_1777711633763"
+  },
+  {
+    "moves": 3,
+    "optimal_moves": null,
+    "excess_moves": null,
+    "avg_latency": 173.5,
+    "path_consistency": 1.0,
+    "repeat_error_rate": 0,
+    "success": false,
+    "level": 2,
+    "run": 1,
+    "first_input_time": 5391,
+    "fail_count": 1,
+    "player_id": "player_1777711633763"
+  },
+  {
+    "moves": 10,
+    "optimal_moves": 10,
+    "excess_moves": 0,
+    "avg_latency": 353.22222222222223,
+    "path_consistency": 0.7,
+    "repeat_error_rate": 0,
+    "success": true,
+    "level": 2,
+    "run": 2,
+    "first_input_time": 6716,
+    "fail_count": 0,
+    "player_id": "player_1777711633763"
+  }
+]

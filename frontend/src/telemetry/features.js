@@ -2,14 +2,16 @@ export function extractFeatures(logs, levelIndex) {
   const runs = {};
 
   logs.forEach((log) => {
-    if (!runs[log.run]) runs[log.run] = [];
-    runs[log.run].push(log);
+    const key = `${log.level}_${log.run}`;
+    if (!runs[key]) runs[key] = [];
+    runs[key].push(log);
   });
 
   const results = [];
+  const levelRunMap = {};
 
-  Object.keys(runs).forEach((runId) => {
-    const events = runs[runId];
+  Object.keys(runs).forEach((key) => {
+    const events = runs[key];
 
     let moveCount = 0;
     let latencies = [];
@@ -74,9 +76,14 @@ export function extractFeatures(logs, levelIndex) {
     const repeatErrorRate =
       Object.values(failPositions).filter((v) => v > 1).length;
 
+    const lvl = level ?? levelIndex;
+
+    if (!levelRunMap[lvl]) levelRunMap[lvl] = 0;
+    const normalizedRun = levelRunMap[lvl]++;
+    
     results.push({
-      level: level ?? levelIndex,
-      run: Number(runId),
+      level: lvl,
+      run: normalizedRun,
       moves: moveCount,
       avg_latency: avgLatency,
       first_input_time: firstInput,

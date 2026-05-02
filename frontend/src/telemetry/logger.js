@@ -20,6 +20,7 @@ class Logger {
         event: "first_input",
         value: now - this.startTime,
         run: this.runId,
+        level: levelIndex, // ✅ FIX
       });
     } else {
       this.logs.push({
@@ -39,7 +40,7 @@ class Logger {
       orientation: block.orientation,
       timestamp: now,
       run: this.runId,
-      level: levelIndex,    
+      level: levelIndex,
     });
   }
 
@@ -57,17 +58,17 @@ class Logger {
   }
 
   logWin(data, levelIndex) {
-  this.logs.push({
-    event: "win",
-    timestamp: Date.now(),
-    run: this.runId,
-    ...data, 
-    level: levelIndex,
-  });
+    this.logs.push({
+      event: "win",
+      timestamp: Date.now(),
+      run: this.runId,
+      level: levelIndex,
+      ...data,
+    });
 
-  this.runId++;
-  this.lastMoveTime = null;
-}
+    this.runId++;
+    this.lastMoveTime = null;
+  }
 
   export() {
     return this.logs;
